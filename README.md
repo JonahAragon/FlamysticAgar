@@ -20,13 +20,13 @@ If you've purchased a copy of this emulator, you've probably been ripped off. Fl
  * Git
   * Usually preinstalled with *nix distros. If not run `sudo apt-get install git` (Debian/Ubuntu) or `yun install git` (Fedora/OpenSUSE). On Mac it can be downloaded from [git-scm.com](https://git-scm.com/download/mac). On Windows you can download it from [git-scm.com](https://git-scm.com/download/win) or download [GitHub for Windows](https://windows.github.com/).
 
-Windows:
+### Windows:
 
  * Download the Agar.io Emulator [here](https://github.com/JonahAragon/FlamysticAgar/archive/master.zip).
  * Unzip the archive
  * Inside the [`src`](/src) folder, double click [`Start.bat`](/src/Start.bat).
 
-Linux:
+### Linux:
 ```sh
 ~$ git clone git://github.com/JonahAragon/FlamysticAgar.git FlamysticAgar
 ~$ npm install ws
@@ -34,6 +34,7 @@ Linux:
 ~$ node index.js
 ```
 
+### Post-Installation
 Currently, the emulator listens on the following ports:
 * *:80 - for the master server
 * *:443 - for the game server
