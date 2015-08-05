@@ -1,43 +1,52 @@
-# Ogar
-A fully functional open source Agar.io server implementation, written in Node.js. Ogar is designed to be used with the latest Agar.io client.
+# Agar Emulator (by [Flamystic](http://www.flamystic.com/))
+A fully functional open source Agar.io server implementation, written in Node.js. This emulator is designed to be used with the latest Agar.io client.
 
-### Official Website
-The official website for the Ogar Project is [ogarproject.com](http://ogarproject.com). You can register on our forums to chat with other Ogar users, get support, advertise your server, and more.
+## Official Website
+The official website for this project is [www.flamystic.com](http://www.flamystic.com). You can register on our forums to chat with other users, get support, advertise your server, and more.
 
-### Purchased Ogar?
-If you've purchased a copy of Ogar, you've probably been ripped off. [This post on our website explains why.](http://ogarproject.com/threads/psa-if-you-purchased-ogar-youve-been-ripped-off.6/)
+## Purchased this emulator?
+If you've purchased a copy of this emulator, you've probably been ripped off. Flamystic is providing this modified version of the "Ogar" project under a open source license, as illustrated at [LICENSE.md](LICENSE.md), for free usage.
 
 ## Obtaining and Using
-If you are on Windows, you can download the latest binary build of Ogar [from this page](http://dl.ogarproject.com/). The binary is the easiest way to get started running an Ogar server. If you'd like to tinker with the source code, you can follow the instructions below (and slightly modify them) to run the source on Windows.
 
-As Ogar is written in Node.js, you must have Node.js and its "ws" module installed to use it (unless you are using the Windows binary). You can usually download Node using your distribution's package manager (for *nix-like systems), or from [the Node website](http://nodejs.org). To install the "ws" module that is required, open up your system command line (cmd for windows, terminal for mac) and type "npm install ws". If you are on Linux, you can use the install script which would also automatically install node.js and ws. 
+### Prerequisites
 
-Manual:
+ * Node.js and NPM
+  * This can be downloaded from your distro's package manager (for *nix systems), or from [the Node website](http://nodejs.org) (for Windows, Mac).
+ * Python
+  * Usually preinstalled with *nix distros. On Windows it can be downloaded from [this page](https://www.python.org/downloads/windows/). You will need to download Python 2.7.x, not Python 3.x.x!
+ * "ws" Node module
+  * In your command line/terminal, enter `npm install ws` (this requires Node.js and Python first!)
+ * Git
+  * Usually preinstalled with *nix distros. If not run `sudo apt-get install git` (Debian/Ubuntu) or `yun install git` (Fedora/OpenSUSE). On Mac it can be downloaded from [git-scm.com](https://git-scm.com/download/mac). On Windows you can download it from [git-scm.com](https://git-scm.com/download/win) or download [GitHub for Windows](https://windows.github.com/).
+
+Windows:
+
+ * Download the Agar.io Emulator [here](https://github.com/JonahAragon/FlamysticAgar/archive/master.zip).
+ * Unzip the archive
+ * Inside the [`src`](/src) folder, double click [`Start.bat`](/src/Start.bat).
+
+Linux:
 ```sh
-~$ git clone git://github.com/OgarProject/Ogar.git Ogar
+~$ git clone git://github.com/JonahAragon/FlamysticAgar.git FlamysticAgar
 ~$ npm install ws
-~$ node Ogar
+~$ cd FlamysticAgar
+~$ node index.js
 ```
-Using the install script:
-```sh
-~$ sudo ogar-linux-script.sh install /your/preferred/directory
-~$ sudo -u ogar -H /bin/sh -c "cd; /bin/node src/index.js"
-```
-Using ```sudo -u ogar -H /bin/sh -c "cd; /bin/node src/index.js" ``` to launch the server increases security by running the process as an unprivileged, dedicated user with a limited shell and it is recommended to do so.
 
-Currently, Ogar listens on the following addresses and ports:
+Currently, the emulator listens on the following ports:
 * *:80 - for the master server
 * *:443 - for the game server
 
-Please note that on some systems, you may have to run the process as root or otherwise elevate your privileges to allow the process to listen on the needed ports. **If you are getting an EADDRINUSE error, it means that the port required to run Ogar is being used. Usually, Skype is the culprit. To solve this, either close out skype, or change the serverPort value in gameserver.ini to a different port. You will have to change your connection ip to "127.0.0.1:PORT"**
+Please note that on some systems, you may have to run the process as root or otherwise elevate your privileges to allow the process to listen on the needed ports. **If you are getting an EADDRINUSE error, it means that the port required to run this emulator is in use. Usually, Skype is the culprit. To solve this, either close out skype, or change the serverPort value in gameserver.ini to a different port. You will have to change your connection ip to "127.0.0.1:PORT"**
 
 Once the game server is running, you can connect (locally) by typing `agar.io/?ip=127.0.0.1:443` into your browser's address bar.
 
-## Configuring Ogar
-Use "gameserver.ini" to modify Ogar's configurations field. Player bots are currently basic and for testing purposes. To use them, change "serverBots" to a value higher than zero in the configuration file. To add/remove bot names, edit the file named "botnames.txt" which is in the same folder as "gameserver.ini". Names should be separated by using the enter key.
+## Configuring the server
+Use `gameserver.ini` to modify the server's configurations field. Player bots are currently basic and for testing purposes. To use them, change `serverBots` to a value higher than zero in the configuration file. To add/remove bot names, edit the file named `botnames.txt` which is in the same folder as `gameserver.ini`. Names should be separated by using the enter key.
 
 ## Custom Game modes
-Ogar has support for custom game modes. To switch between game modes, change the value of "serverGamemode" in the configurations file to the selected game mode id and restart the server. The current supported game modes are:
+This has support for custom game modes. To switch between game modes, change the value of "serverGamemode" in the configurations file to the selected game mode id and restart the server. The current supported game modes are:
 
 Id   | Name
 -----|--------------
@@ -96,7 +105,7 @@ The current available console commands are listed here. Command names are not ca
    * Spawns a virus cell at those coordinates. If a mass value is not specified, then the server will default to "virusStartMass" in the config.
 
 ## Contributing
-Please see [CONTRIBUTING.md](https://github.com/OgarProject/Ogar/blob/master/CONTRIBUTING.md) for contribution guidelines.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## License
-Please see [LICENSE.md](https://github.com/OgarProject/Ogar/blob/master/LICENSE.md).
+Please see [LICENSE.md](LICENSE.md).
